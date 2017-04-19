@@ -26,7 +26,9 @@ class CAM:
 
 	def fan(self, speed):
 		self.device.write(1, [2, 77, 0, 0, speed, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-		
+
+# Change these if they differ from yours
+# See lsusb (e.g. Bus 001 Device 004: ID 1e71:170e NZXT)
 vid = 0x1e71
 pid = 0x170e
 
