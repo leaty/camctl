@@ -43,6 +43,7 @@ try:
 	cam = CAM(vid, pid)
 	cam.claim()
 	cam.fan(args.speed)
+	cam.declaim()
 except Exception as e:
 	cam.declaim()
 	raise(e)
