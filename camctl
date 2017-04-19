@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import usb.core
+import usb.util
 import argparse
 import sys
 
@@ -22,9 +23,11 @@ class CAM:
 	def declaim(self):
 		if not self.device.is_kernel_driver_active(0):
 			print('Reattaching kernel driver..')
+			usb.util.dispose_resources(self.device)
 			self.device.attach_kernel_driver(0)
 
 	def fan(self, speed):
+		print('Setting fan speed to {}..'.format(speed))
 		self.device.write(1, [2, 77, 0, 0, speed, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
 # Change these if they differ from yours
