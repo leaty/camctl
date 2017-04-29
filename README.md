@@ -1,5 +1,5 @@
 # camctl
-Fan speed control on Linux for NZXT Kraken X62 (possibly other editions)
+Fan/pump speed control on Linux for NZXT Kraken X62 (possibly other editions)
 
 # DISCLAIMER
 Use at your **own risk**, I take **NO** responsibility if anything crazy happens. Neither does NZXT as they are not involved.
