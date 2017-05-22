@@ -17,7 +17,7 @@ Fedora 25 x64 Kernel 4.10.10-200.fc25.x86_64
 
 ## Dependencies
 * Python 3
-* pyusb ```sudo pip3 install pyusb```
+* pyusb ```sudo python3 -m pip install pyusb```
 
 ## Installation
 ```Shell
