@@ -34,6 +34,13 @@ class CAM:
 		print('Setting pump speed to {}..'.format(speed))
 		self.device.write(1, [2, 77, 64, 0, speed, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
+	def status(self):
+		data = self.device.read(0x81, 64)
+		liquid_temp = data[1] + data[2]/10
+		fan_speed = data[3] << 8 | data[4]
+		pump_speed = data[5] << 8 | data[6]
+		return (fan_speed, pump_speed, liquid_temp)
+
 # Change these if they differ from yours
 # See lsusb (e.g. Bus 001 Device 004: ID 1e71:170e NZXT)
 vid = 0x1e71
@@ -59,6 +66,13 @@ try:
 		cam.fan(args.fanspeed)
 	if args.pumpspeed:
 		cam.pump(args.pumpspeed)
+
+	if not args.fanspeed and not args.pumpspeed:
+		stats = cam.status()
+		print('fan speed  :', stats[0])
+		print('pump speed :', stats[1])
+		print('liquid temp:', stats[2])
+
 	cam.declaim()
 except Exception as e:
 	cam.declaim()
