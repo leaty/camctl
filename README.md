@@ -1,3 +1,6 @@
+### Unmaintained
+This repository is unmaintained as I do not own a Kraken anymore. If this doesn't work for you or it doesn't fulfill your needs, it's best to look for other forks or solutions. though I may still answer questions. 
+
 # camctl
 Fan/pump speed control on Linux for NZXT Kraken X62 (possibly other editions)
 
